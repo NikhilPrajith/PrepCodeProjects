@@ -1,0 +1,642 @@
+<!DOCTYPE HTML>
+<!--
+Nikhil. Prajith Kumar Period 5 and 6
+The link for the design document is https://docs.google.com/document/d/1ewmG7N4Wk5e-UZn9A3gH79V6j5tp1iPpcVjPG7jwkW4/edit?usp=sharing
+-->
+<html>
+	<head>
+		<title></title>
+		<!--In the style I created many classes and called it on buttons, letters to create the css of te program. 
+			This will ake te program asthetically pleasing-->
+		<style>
+		
+			body{
+
+				background-color:rgb(128, 229, 255);
+				text-align:center;
+				
+				
+			}
+			
+			.button {
+					background-color: rgb(255, 133, 51);
+					padding-top: 50px 70px,;
+					text-align: center;
+					font-size: 19px;
+					border-radius: 10px;
+			}
+			.button:hover{background-color: rgb(102, 255, 153);}
+			
+			.button2 {
+					background-color: #f44336;
+					padding-top: 50px 50px,;
+					text-align: center;
+					font-size: 19px;
+					margin-right: 42px;		
+					border-radius: 10px;
+			}
+			.button2:hover{background-color:lightblue;}
+			
+			.button3 {
+					background-color: rgb(255, 153, 153);
+					padding-top: 50px 50px,;
+					text-align: center;
+					font-size: 19px;
+					border-radius: 10px;
+			}
+			.button3:hover{background-color:Yellow;}
+			
+			.button4 {
+					background-color: #f44336;
+					padding-top: 50px 50px,;
+					text-align: center;
+					font-size: 19px;
+					margin-right:42px;
+					border-radius: 10px;
+			}
+			.button4:hover{background-color:lightblue;}
+
+			.divcolor {
+				text-align: center;
+				font-size: 50px;
+			
+			}
+			
+			h1{
+				text-align:center;
+			}
+			
+			.total {
+				text-align:center;
+				font-size:32px;
+			}
+			
+			.calculate {
+				padding-bottom: 2%;
+			}
+			
+			table tr th {
+				border-color: black;
+				border-style: solid;
+				border-width:10%
+				text-align: left;
+				psition:absolute;
+				top:60px;
+			}
+			
+			.start {
+					background-color: green;
+					padding-top: 50px 50px,;
+					text-align: center;
+					font-size: 30px;
+						
+			}
+			
+			.value {
+				font-size:90px;
+				color:green;				
+			}
+			
+			.sign {
+				font-size:90px;
+			}
+			
+		</style>
+		<script>
+			function initialize()
+			{
+			/*This function has set the value of all the variabe to 0 and took the position of all the value using getElementById*/
+				totalpennies=0,
+				totaldimes=0;
+				totalquarters=0;
+				totalnickels=0;
+				totalhalfdollars=0;
+				totaldollars=0;
+				totalvalue = 0;
+				totalpenniesvalue=0;
+				totalnickelsvalue=0;
+				totaldimesvalue=0;
+				totalquartersvalue=0;
+				totalhalfdollarsvalue=0;
+				totaldollarsvalue=0;
+				totalvalueOutput = document.getElementById("counterout");
+				totalpenniesOutput = document.getElementById("penniesout");
+				totalpenniesvalueOutput = document.getElementById("penniesvalueout");
+				totalnickelsOutput = document.getElementById("nickelsout");
+				totalnickelsvalueOutput = document.getElementById("nickelsvalueout");
+				totaldimesOutput = document.getElementById("dimesout");
+				totaldimesvalueOutput = document.getElementById("dimesvalueout");
+				totalquartersOutput = document.getElementById("quartersout");
+				totalquartersvalueOutput= document.getElementById("quartersvalueout");
+				totalhalfdollarsOutput = document.getElementById("halfdollarsout");
+				totalhalfdollarsvalueOutput = document.getElementById("halfdollarsvalueout");
+				totaldollarsOutput = document.getElementById("dollarsout");
+				totaldollarsvalueOutput = document.getElementById("dollarsvalueout");
+				signoutOutput = document.getElementById("signout");
+				centOutput = document.getElementById("cent");
+				display();
+			}
+			
+			function addapenny()
+			{
+			/*This will add 1 cent to the total value in the account and it goes the same for all the other coins.
+			For nickels it adds 5 cents to the total value, for dimes it adds 10 cents. Then it will add 1 to the total number of that particular coins.
+			Then it will add the value of that coin to the total value of that coin*/
+				totalvalue = totalvalue +1;		
+				totalpennies = totalpennies+1;
+				totalpenniesvalue = totalpenniesvalue + 1;
+				display();
+				
+			}			
+			function add5pennies()
+			{
+			/*For add 5 pennies it adds 5 cents to the total value and the same for all the other, add 5 nickels will add 25 cets*/
+				totalvalue=totalvalue+5;
+				totalpennies = totalpennies+5;
+				totalpenniesvalue = totalpenniesvalue + 5;
+				display();
+			}
+			
+			function addanickel()
+			{
+				totalvalue = totalvalue + (5);
+				totalnickels=totalnickels+1;
+				totalnickelsvalue = totalnickelsvalue+5;
+				display();
+			}
+			
+			function add5nickels()
+			{
+				totalvalue=totalvalue + (25);
+				totalnickels=totalnickels+5;
+				totalnickelsvalue = totalnickelsvalue+25;
+				display();
+			}
+	
+			function addadime()
+			{
+				totalvalue = totalvalue + (10);
+				totaldimes=totaldimes+1
+				totaldimesvalue = totaldimesvalue + 10;
+				display();
+			}
+			
+			function add5dimes()
+			{
+				totalvalue=totalvalue+(50);
+				totaldimes = totaldimes + 5;
+				totaldimesvalue = totaldimesvalue + 50;
+				display();
+			}
+			
+			function addaquarter()
+			{
+				totalvalue = totalvalue + (25);
+				totalquarters= totalquarters+1;
+				totalquartersvalue = totalquartersvalue + 25;
+				display();
+			}
+			
+			function add5quarters()
+			{
+				totalvalue = totalvalue + (125)
+				totalquarters = totalquarters + 5;
+				totalquartersvalue = totalquartersvalue + 125;
+				display();
+			}
+			<!--Everything below this are extra that was not necessarily part of the requirements-->
+			
+			function addahalfdollar()
+			{
+				totalvalue=totalvalue + 50;
+				totalhalfdollars = totalhalfdollars + 1;
+				totalhalfdollarsvalue = totalhalfdollarsvalue+50;
+				display();
+			}
+			
+			function add5halfdollars()
+			{
+				totalvalue = totalvalue + 250;
+				totalhalfdollars = totalhalfdollars + 5;
+				totalhalfdollarsvalue = totalhalfdollarsvalue + 250;
+				display();
+			}
+			
+			function addadollar()
+			{
+				totalvalue  = totalvalue + 100;
+				totaldollars = totaldollars + 1;
+				totaldollarsvalue = totaldollarsvalue + 100;
+				display();
+			}
+			
+			function add5dollars()
+			{
+				totalvalue = totalvalue + 500;
+				totaldollars = totaldollars + 5;
+				totaldollarsvalue = totaldollarsvalue + 500;
+				display();		
+			}
+			
+			
+			
+			function removeapenny()
+			{	
+			/*This will remove a penny fro the total value only if it is possible by looking at the total number of pennies present
+			It continues the same procedure for the rest of the coins, if it is able to subtract it will subtract*/
+				if (totalvalue<=0)
+						{
+							totalvalue=0;
+							alert("Your Value Will Be Negative");
+						}
+				else{
+					if(totalpennies>0)
+					{
+						totalvalue = totalvalue - (1);
+						totalpennies = totalpennies-1;
+						totalpenniesvalue = totalpenniesvalue-1;
+					}
+					else{
+						alert("Your Total Pennies Amount Has Reached Zero");
+					}
+				}
+				display();
+			}			
+			
+			function remove5pennies()
+			{
+			/*This will remove 5 pennies from the total value only if there are 5 coins of that particular coin to subtract and will set all the varibale
+			assocciated to the correct value*/
+				if(totalvalue<5)
+				{
+					totalvalue=totalvalue;
+					alert("Your Value Will Go Negative")
+				}
+				else{
+					if(totalpennies>=5)
+					{
+						totalvalue = totalvalue - (5);
+						totalpennies = totalpennies-5;
+						totalpenniesvalue  = totalpenniesvalue-5;
+					}
+					else{
+						alert("Your Total Pennies Amount Will Have A Negative Value");
+					}
+				}
+				display();
+			
+			}
+			
+			function removeanickel()
+			{
+				if (totalvalue<=4)
+				{
+					totalvalue = totalvalue;
+					alert("Your Total Value Will Be Negative");
+				}
+				else{
+					if(totalnickels>0)
+					{
+						totalvalue = totalvalue - (5);
+						totalnickels = totalnickels-1;
+						totalnickelsvalue = totalnickelsvalue - 5;
+					}
+					else{
+						alert("Your Total Nickels Amount Has Reached Zero");
+					}
+				}
+				display();
+			}
+			
+			function remove5nickels()
+			{
+				if(totalvalue<=24)
+				{
+					totalvalue=totalvalue;
+					alert("Your Total Value Will Be Negative")
+				}
+				else{
+					if(totalnickels>=5)
+					{
+						totalvalue = totalvalue - (25);
+						totalnickels = totalnickels-5;
+						totalnickelsvalue = totalnickelsvalue -25;
+					}
+					else{
+						alert("Your Total Nickels Amount Will Have A Negative Value");
+					}
+				}
+				display();
+			}
+			
+			function removeadime()
+			{
+				if (totalvalue<=9)
+				{
+					totalvalue = totalvalue;
+					alert("Your Total Value Will Be Negative");
+				}
+				else{
+					if(totaldimes>0)
+					{
+						totalvalue = totalvalue - (10);
+						totaldimes= totaldimes-1;
+						totaldimesvalue = totaldimesvalue - 10;
+					}
+					else{
+						alert("Your Total Dimes Amount Has Reached Zero");
+					}
+				}
+				display();
+			}
+			
+			function remove5dimes()
+			{
+				if(totalvalue<=49)
+				{
+					totalvalue=totalvalue;
+					alert("Your Total Value Will Be Negative")
+				}
+				else{
+					if(totaldimes>=5)
+					{
+						totalvalue = totalvalue - (50);
+						totaldimes = totaldimes-5;
+						totaldimesvalue = totaldimesvalue-50;
+					}
+					else{
+						alert("Your Total Dimes Amount Will Have A Negative Value");
+					}
+				}
+				display();
+			
+			}
+			
+			function removeaquarter()
+			{
+				if (totalvalue<=24)
+				{
+					totalvalue = totalvalue;
+					alert("Your Total Value Will Be Negative");
+				}
+				else{
+					if(totalquarters>0)
+					{
+						totalvalue = totalvalue - (25);
+						totalquarters= totalquarters-1;
+						totalquartersvalue=totalquartersvalue-25;
+					}
+					else{
+						alert("Your Total Quarters Amount Has Reached Zero");
+					}
+				}
+				display();
+			}
+			
+			function remove5quarters()
+			{
+				if(totalvalue<=124)
+				{
+					totalvalue=totalvalue;
+					alert("Your Total Value Will Be Negative")
+				}
+				else{
+					if(totalquarters>=5)
+					{
+						totalvalue = totalvalue - (125);
+						totalquarters = totalquarters-5;
+						totalquartersvalue=totalquartersvalue-125;
+					}
+					else{
+						alert("Your Total Quarters Amount Will Have A Negative Value");
+					}
+				}
+				display();
+			}
+			<!--Everything below this are extra that was not necessarily part of the requirements-->
+			
+			function removeahalfdollar()
+			{	
+				if (totalvalue<=49)
+						{
+							totalvalue=totalvalue;
+							alert("Your Value Will Be Negative");
+						}
+				else{
+					if(totalhalfdollars>0)
+					{
+						totalvalue = totalvalue - (50);
+						totalhalfdollars = totalhalfdollars-1;
+						totalhalfdollarsvalue = totalhalfdollarsvalue-50;
+					}
+					else{
+						alert("Your Total Half Dollar Amount Has Reached Zero");
+					}
+				}
+				display();
+			}	
+			
+			function remove5halfdollars()
+			{
+				if(totalvalue<=249)
+				{
+					totalvalue=totalvalue;
+					alert("Your Total Value Will Be Negative")
+				}
+				else{
+					if(totalhalfdollars>=5)
+					{
+						totalvalue = totalvalue - (250);
+						totalhalfdollars = totalhalfdollars-5;
+						totalhalfdollarsvalue = totalhalfdollarsvalue-250;
+					}
+					else{
+						alert("Your Total Half Dollars Amount Will Have A Negative Value");
+					}
+				}
+				display();
+			}
+			
+			function removeadollar()
+			{	
+				if (totalvalue<=99)
+						{
+							totalvalue=totalvalue;
+							alert("Your Value Will Be Negative");
+						}
+				else{
+					if(totaldollars>0)
+					{
+						totalvalue = totalvalue - (100);
+						totaldollars = totaldollars-1;
+						totaldollarsvalue = totaldollarsvalue - 100;
+					}
+					else{
+						alert("Your Total Dollar Amount Has Reached Zero");
+					}
+				}
+				display();
+			}	
+			
+			function remove5dollars()
+			{
+				if(totalvalue<=499)
+				{
+					totalvalue=totalvalue;
+					alert("Your Total Value Will Be Negative")
+				}
+				else{
+					if(totaldollars>=5)
+					{
+						totalvalue = totalvalue - (500);
+						totaldollars = totaldollars-5;
+						totaldollarsvalue = totaldollarsvalue - 500;
+					}
+					else{
+						alert("Your Total Dollars Amount Will Have A Negative Value");
+					}
+				}
+				display();
+			}
+			function display()
+			{
+			/*This will display the value of all the varibale by using .innerHTML but for the total value if it is
+			greater than 100 cents it will divide by 100 and write it in dollars*/
+				if(totalvalue<100)
+				{
+					if(totalvalue==0)
+					{
+						totalvalueOutput.innerHTML = totalvalue;
+						centOutput.innerHTML = "";
+						signoutOutput.innerHTML = "$";
+					}
+					else{		
+						if(totalvalue==1)
+						{
+							totalvalueOutput.innerHTML = totalvalue;
+							centOutput.innerHTML = " cent";
+							signoutOutput.innerHTML = "";
+						}
+						else{
+							totalvalueOutput.innerHTML = totalvalue;
+							centOutput.innerHTML = " cents";
+							signoutOutput.innerHTML = "";
+						}
+					}
+					
+				}
+				else
+				{
+					totalvalueOutput.innerHTML = totalvalue/100;
+					signoutOutput.innerHTML = "$";
+					centOutput.innerHTML = "";
+					
+				}
+				/*This will set partcular value too variable and display for the user to see*/
+				totalpenniesOutput.innerHTML = totalpennies;
+				totalpenniesvalueOutput.innerHTML = "$" + (totalpenniesvalue/100);
+				totalnickelsOutput.innerHTML = totalnickels;
+				totalnickelsvalueOutput.innerHTML = "$" + (totalnickelsvalue/100);
+				totaldimesOutput.innerHTML = totaldimes;
+				totaldimesvalueOutput.innerHTML = "$" + (totaldimesvalue/100);
+				totalquartersOutput.innerHTML = totalquarters;
+				totalquartersvalueOutput.innerHTML = "$" + (totalquartersvalue/100);
+				totalhalfdollarsOutput.innerHTML = totalhalfdollars;
+				totalhalfdollarsvalueOutput.innerHTML = "$" + (totalhalfdollarsvalue/100);
+				totaldollarsOutput.innerHTML = totaldollars;
+				totaldollarsvalueOutput.innerHTML = "$" + (totaldollarsvalue/100);
+			}
+			
+			
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<h3>**The table for the value of each coin is shown below;scroll down**<h3>
+		<h1>COUNT DE MONEY</h1>
+		<!--This variable below has 3 divs one for the sign if it is dollars, the other for the value of the total amount
+		and the last one for writig cents if the value is less than a dollar-->
+			
+		<div class="divcolor" >Total Value In Your Account:<span class = "sign" id = "signout"></span><span class= "value" id = "counterout"> 0</span><span id = "cent"></span></div>
+		<div class="calculate">	
+		<!--The class is used for the css part of that program that will make it asthetically pleasing for te user-->
+		<p>
+			<button class="button" onclick="addapenny();">Add a Penny</button>
+			<button class="button2" onclick="add5pennies();">+5 pennies</button>
+			<button class="button3" onclick="removeapenny();">Subtract a Penny</button>
+			<button class="button4" onclick="remove5pennies();">Subtract 5 Pennies</button>
+		</p><hr/>
+		<p>
+			<button class="button" onclick="addanickel();">Add a Nickel</button>
+			<button class="button2" onclick="add5nickels();">+5 Nickels</button>
+			<button class="button3" onclick="removeanickel();">Subtract a Nickel</button>
+			<button class="button4" onclick="remove5nickels();">Subtract 5 Nickels</button>
+		</p><hr/>
+		<p>
+			<button class="button" onclick="addadime();">Add a Dime</button>
+			<button class="button2" onclick="add5dimes();">+5 Dimes</button>
+			<button class="button3" onclick="removeadime();">Subtract a Dime</button>
+			<button class="button4" onclick="remove5dimes();">Subtract 5 Dimes</button>
+		</p><hr/>
+		<p>
+			<button class="button" onclick="addaquarter();">Add a Quarter</button>
+			<button class="button2" onclick="add5quarters();">+5 Quarters</button>
+			<button class="button3" onclick="removeaquarter();">Subtract a Quarter</button>
+			<button class="button4" onclick="remove5quarters();">Subtract 5 Quarters</button>
+		</p><hr/>
+		
+		<p>
+			<button class="button3" onclick="addahalfdollar();">Add a Half Dollar</button>
+			<button class="button4" onclick="add5halfdollars();">+ 5 Half Dollars</button>
+			<button class="button3" onclick="removeahalfdollar();">Remove a Half Dollar</button>
+			<button class="button4" onclick="remove5halfdollars();">Subtract 5 Half Dollars</button>
+		</p><hr/>
+		
+		<p>
+			<button class="button3" onclick="addadollar();">Add a Dollar</button>
+			<button class="button4" onclick="add5dollars();">+ 5 Dollars</button>
+			<button class="button3" onclick="removeadollar();">Remove a Dollar</button>
+			<button class="button4" onclick="remove5dollars();">Subtract 5 Dollars</button>
+		</p><hr/>
+		
+		<p>
+			<button class="start" onclick="initialize();">Reset The Values</button>
+		</p> <hr/>
+		
+		</div>
+		<!--The bottom created a table to display the number of coins that are present for each coin-->
+		<table style="width:50%">
+			<tr>
+				<th><div class="total" >Total Pennies: <span id = "penniesout">0</span></div></th>
+				<th><div class="total" >Total Value of Pennies: <span id = "penniesvalueout">0</span></div></th>	
+			</tr>
+			
+			<tr>
+				<th><div class="total" >Total Nickels: <span id = "nickelsout">0</span></div></th>
+				<th><div class="total" >Total Value of Nickels: <span id = "nickelsvalueout">0</span></div></th> 
+			</tr>
+			
+			
+			<tr>
+				<th><div class="total" >Total Dimes: <span id = "dimesout">0</span></div></th>
+				<th><div class="total" >Total Value of Dimes: <span id = "dimesvalueout">0</span></div></th>
+			</tr>
+			
+			<tr>
+				<th><div class="total" >Total Quarters: <span id = "quartersout">0</span></div></th> 
+				<th><div class="total" >Total Value of Quarters: <span id = "quartersvalueout">0</span></div></th> 
+			</tr>
+			
+			<tr>
+				<th><div class="total" >Total Half Dollars: <span id = "halfdollarsout">0</span></div></th> 
+				<th><div class="total" >Total Value of Half Dollars: <span id = "halfdollarsvalueout">0</span></div></th> 
+			</tr>
+			
+			<tr>
+				<th><div class="total" >Total Dollars: <span id = "dollarsout">0</span></div></th> 
+				<th><div class="total" >Total Value of Dollars: <span id = "dollarsvalueout">0</span></div></th> 
+			</tr>
+			
+			
+		</table>
+	</body>
+</html> 
