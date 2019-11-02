@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<!--
+Nikhil. Prajith Kumar Period 5 and 6
+Design Document: https://docs.google.com/document/d/1LVHW2u2ef4IE4syMWl6F6ogt8EmmKBgl--Rd8HMWePo/edit?usp=sharing
+-->
+<html>
+	<head>
+		<title>Nikhil's Project</title>
+		<style></style>
+		<link rel="stylesheet" href="level2.css"/>
+		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<script src="level2.js"></script>
+	</head>
+	<body onload = "initialize(); start(); displaycode(); roundset()">
+		<h1 id="scores" style="margin: 50px; padding: 0px; line-height: 0px;">Score: <span id="points">0</span></h1><br>
+		<div id="lock" class="fa fa-lock" style="color: red; font-size: 350px;"></div>
+		<div class="slideshow" id="slideshow">
+				<p class="item-1" id="1" > Make it fast, you dont have all the time in the world!!</p>
+				<p class="item-2" id="2">	Check Your Log Sheets Man!</p>
+				<p class="item-3" id="3">Tick! Tock! Tick! Tock! Time's passing; Are You?</p>
+			</div><br />
+		<div class="w3-animate-opacity">
+			
+			<div id="container">
+				<div class="lock">
+					<h1 id="round"></h1>
+					<p id="turns2" style="margin-bottom: 50px;">Turns Left: <span  id="turns">7</span></p>
+					<p class="imput" id= "imput" style="text-align: center; line-height: 0px; margin: 0px; padding-right: 20px;"><span id="num1">0</span><span id="num2">0</span><span id="num3">0</span></p><br/>
+					<br/>
+						<button class="nums" onclick="digit(1);" style="margin-bottom: 9px; margin-right: 5px; border: 2px solid red;">1</button>
+						<button class="nums" onclick="digit(2);" style="margin-bottom: 9px; margin-right: 5px; border: 2px solid red;">2</button>
+						<button class="nums" onclick="digit(3);" style="margin-bottom: 9px; margin-right: 5px; border: 2px solid red;">3</button><br>
+						<button class="nums" onclick="digit(4);" style="margin-bottom: 9px; margin-right: 5px; border: 2px solid red;">4</button>
+						<button class="nums" onclick="digit(5);" style="margin-bottom: 9px; margin-right: 5px; border: 2px solid red;">5</button>
+						<button class="nums" onclick="digit(6);" style="margin-bottom: 9px; margin-right: 5px; border: 2px solid red;">6</button><br>
+						<button class="nums" onclick="digit(7);" style="margin-bottom: 9px; margin-right: 5px; border: 2px solid red;">7</button>
+						<button class="nums" onclick="digit(8);" style="margin-bottom: 9px; margin-right: 5px; border: 2px solid red;">8</button>
+						<button class="nums" onclick="digit(9);" style="margin-bottom: 9px; margin-right: 5px; border: 2px solid red;">9</button>
+					<br>
+					<button class="submit" onclick="delete2();">Clear</button>
+					<div id="range"></div>
+					<div class="code" id="code"></div>
+				</div>
+				<span class="hovers">
+					<div id="mySidenav" class="sidenav">
+						<a href="instructions.html" class="about" id="about">Instructions >>></a>
+						<a class="winners" id="blog" onclick="themeDark();">Theme Switch >></a>
+					</div>
+				</span>
+				<div id="console"> </div>
+			</div>
+			<div id ="log" class="log">
+			</div>
+			<img id="pics" class="pic" width=20% style="visibility: hidden;" src="http://moziru.com/images/light-clipart-1.png" >
+			
+			
+		</div>
+		
+		
+	</body>
+</html> 

@@ -1,0 +1,180 @@
+			body{
+				animation-name: example;
+				animation-duration: 2s;
+				background-color:white;
+			}
+			@-webkit-keyframes example {
+				from {background-color: white;}
+				to {background-color: red;}
+				from {background-color: red;}
+				to {background-color: #82b1ff;}
+				
+			}		
+					
+			
+			#lock {
+				margin-left: 39%;
+				margin-top: 10%;
+				position: absolute;
+				display: none;
+			}
+
+			button {
+				background-color: #e7e7e7; 
+				color: black;
+				border: none;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+				border-radius: 25px;
+			}
+
+			.submit {
+				background-color: #f44336;
+				color: #fff;
+				margin-left: 56%;
+				transition-duration: 0.4s;
+				cursor: pointer;
+				
+			}
+			.submit:hover{
+				background-color:lightgrey;
+				color:black;
+				border:red solid 2px;
+			}
+			
+			#container {
+				margin-left: 41%;
+				
+				position: absolute;
+			}
+
+			#num1, #num2, #num3{
+				font-size: 90px;
+				text-align: center;
+			}
+			
+			.sidenav a {
+			  position: absolute;
+			  left: -260px;
+			  transition: 0.4s;
+			  padding: 10px;
+			  width: 280px;
+			  text-decoration: none;
+			  font-size: 20px;
+			  color: white;
+			  border-radius: 0 8px 8px 0;
+			  text-align:center;
+			}
+
+			.sidenav a:hover {
+			  left:-30px;
+			}
+
+			.about {
+			  top: 150px;
+			  background-color: #4CAF50;
+			}
+
+			.winners {
+			  top: 220px;
+			  background-color: #2196F3;
+			}
+
+			.hovers{
+				position: absolute;
+				left:-530px;
+				top:-140px;
+			}
+			.nums{
+				transition-duration: 0.4s;
+				cursor: pointer;
+			}
+			.nums:hover{
+				background-color:red;
+				color:white;
+				
+			}
+			#round{
+				color:DodgerBlue;
+			}
+			.log{
+				float: right;
+				background-color:white;
+				
+				width: 20%;
+				height: 400px;
+				padding-right:20px;
+				margin-top:80px;;
+				margin-left:60px;
+				margin-right:30px;
+				padding-left:30px;
+				padding-bottom:20px;
+			}
+			.pic{
+				float:left;
+				margin-top:200px;
+			
+			}
+			.timer{
+				marging-left:100px;;
+				font-size:50px;
+				float:left;
+			}
+			.item-1, 
+			.item-2, 
+			.item-3 {
+				position: absolute;
+				display: block;	  
+				width: 60%;
+				text-align:center;
+				font-size: 20px;
+				animation-duration: 20s;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+				margin-top:0px;
+				margin-bottom:0px;
+				padding-bottom:30px;
+			}
+
+			.item-1{
+				animation-name: anim-1;
+				
+				
+			}
+
+			.item-2{
+				animation-name: anim-2;
+			}
+
+			.item-3{
+				animation-name: anim-3;
+			}
+			@keyframes anim-1 {
+    
+				0%, 8.3% { left: -100%; opacity: 0; }
+				8.3%,25% { left: 20%; opacity: 1; }
+				33.33%, 100% { left: 110%; opacity: 0; }
+			}
+
+			@keyframes anim-2 {
+				0%, 33.33% { left: -100%; opacity: 0; }
+				41.63%, 58.29% { left: 20%; opacity: 1; }
+				66.66%, 100% { left: 110%; opacity: 0; }
+			}
+
+			@keyframes anim-3 {
+				0%, 66.66% { left: -100%; opacity: 0; }
+				74.96%, 91.62% { left: 20%; opacity: 1; }
+				100% { left: 110%; opacity: 0; }
+			}
+			.slideshow{
+				float:top;
+			}
+			.code{
+				color:white;
+			}
