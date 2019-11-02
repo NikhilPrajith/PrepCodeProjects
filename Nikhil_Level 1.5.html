@@ -1,0 +1,468 @@
+<!DOCTYPE HTML>
+<!--
+Nikhil. Prajith Kumar Period 5 and 6
+-->
+<html>
+	<head>
+		<title></title>
+		<style>
+		#gameWin{
+			color:blue;
+			background-size: cover;
+			filter: brightness(1.5) drop-shadow(-2px 2px 0px rgba(255,255,255,1));
+			color: #b95087;
+			-webkit-text-fill-color: transparent; 
+			background:  url(http://hd.wallpaperswide.com/thumbs/abstract_wallpaper_for_mac-t2.jpg);
+			-webkit-background-clip: text; background-clip: text;
+			font-size: 250px;;
+			text-align: center;
+		}
+			
+			body{
+				background-color:black;
+				background: linear-gradient(to right, #ac9ae6,#ea97a5,#D5D0E5,#F3E7E9);
+
+		
+
+			}
+			@keyframes shake {
+				0% { transform: translate(1px, 1px) rotate(0deg); }
+				10% { transform: translate(-1px, -2px) rotate(-1deg); }
+				20% { transform: translate(-3px, 0px) rotate(1deg); }
+				30% { transform: translate(3px, 2px) rotate(0deg); }
+				40% { transform: translate(1px, -1px) rotate(1deg); }
+				50% { transform: translate(-1px, 2px) rotate(-1deg); }
+				60% { transform: translate(-3px, 1px) rotate(0deg); }
+				70% { transform: translate(3px, 1px) rotate(-1deg); }
+				80% { transform: translate(-1px, -1px) rotate(1deg); }
+				90% { transform: translate(1px, 2px) rotate(0deg); }
+				100% { transform: translate(1px, -2px) rotate(-1deg); }
+			}
+			.square{
+				width:250px;
+				height:250px;
+				font-size:100px;			
+				display: flex;
+				justify-content: center; 
+				align-items: center;
+				}
+		
+			table, th, td {
+				border-collapse: collapse;
+				text-align:center;
+				margin:auto;
+				top:50%;
+				bottom:50%;
+	
+			}
+			.bottomborder{
+				border-bottom:10px solid black;
+			}
+			.topborder{
+				border-top:10px solid black;
+			}
+			.leftborder{
+				border-left:10px solid black;
+			}
+			.rightborder{
+				border-right:10px solid black;
+			}
+			#reset{
+				width: 280px;
+				height: 80px;
+				letter-spacing: 4px;
+				border-radius: 30px;
+				font-family: monospace;
+				color:white;
+				font-size: 50px;
+				justify-content: center;
+				margin: auto;
+				background:linear-gradient(60deg,#f4c4f3,#fc67fa,#F3E7E9);
+				cursor: pointer;
+
+			}
+			
+		</style>
+		<script>
+			function initialize() {
+				allboxes=[1,2,3,4,5,6,7,8,9];
+				bot=0;
+				nottaken=false;
+				table=document.getElementById("table1");
+				win=document.getElementById("gameWin");
+				continue1 = 1;
+				checker=12;			
+				times1=0;
+				times2=0;
+				times3=0;
+				times4=0;
+				times5=0;
+				times6=0;
+				times7=0;
+				times8=0;
+				times9=0;
+				allowPlayer = true;	
+				rand=1;
+			}
+			function reset(){
+				initialize();
+				table.style.display="";
+				win.style.display="none";
+				for(i=1;i<10;i++){
+					document.getElementById(i).innerHTML="";
+					document.getElementById(i).style.backgroundColor="";
+					document.getElementById(i).style.margin="";
+					document.getElementById(i).style.width="";
+					document.getElementById(i).style.height="";
+					document.getElementById(i).style.borderRadius="";
+				}
+				document.getElementById("reset").style.display="";
+				document.getElementById("title").style.display="";
+				document.getElementById("subtitle").style.display="";
+			}
+			function letterplace(num){
+				if(times1+times2+times3+times4+times5+times6+times7+times8+times9==17){
+					winscreen("draw");
+				}else if(checker == num){
+					alert("Can't do this move! Wait one more turn!");
+				} else{
+					if(allowPlayer == false){return}
+					window[`times${num}`]=window[`times${num}`]+1;
+					if(window[`times${num}`]==1){
+						document.getElementById(num).innerHTML="X";
+						allboxes[num-1]="X";
+						continue1=1;
+					}else if(window[`times${num}`]==2){
+						if(allboxes[num - 1]=="O"){
+							document.getElementById(num).innerHTML="X";
+							allboxes[num-1]="X";
+							window[`times${num}`]=1;
+							continue1=1;
+						}else if(allboxes[num - 1]=="X"){
+							document.getElementById(num).style.backgroundColor="#ef7ac0";
+							document.getElementById(num).style.margin="auto";
+							document.getElementById(num).style.width="125px";
+							document.getElementById(num).style.height="125px";
+							document.getElementById(num).style.borderRadius="50px 20px";
+							document.getElementById(num).style.margin="62.5px";
+							document.getElementById(num).style.margin="62.5px";
+							document.getElementById(num).innerHTML="X";
+							allboxes[num-1]="X";
+							continue1=1;
+						}
+					}else if(window[`times${num}`]==3){
+						window[`times${num}`]=2;
+						document.getElementById(num).style.animation="shake 0.5s";
+						continue1=0;
+					}else{
+						winscreen("draw");
+						return;
+					}
+			
+			
+					checkwin("X");
+					if(continue1==1){
+						rand=1;
+						allowPlayer = false;
+						checker = num;
+						setTimeout(checkbox,500);
+					}
+				}	
+			}
+			function getrandomnumber(){
+				var x= Math.floor(Math.random() * 9);
+				return x;
+			}
+			
+			function checkbox(){
+			
+				bot=getrandomnumber();
+				if(times1+times2+times3+times4+times5+times6+times7+times8+times9==17){
+					winscreen("draw");
+				}else if(bot == checker-1){
+					checkbox();
+				
+				}else{
+					cheat();
+					if(rand==1){
+						if(times1==2&&times2==2&&times3==2&&times4==2&&times5==2&&times6==2&&times7==2&&times8==2&&times9==2){
+								winscreen("draw");
+						}else if(allboxes[bot]=="O"){
+							if(window[`times${bot+1}`]==1){
+								checker = 12;
+								document.getElementById(bot+1).innerHTML="O"; 
+								allboxes[bot]="O";
+								document.getElementById(bot+1).style.backgroundColor="#ef7ac0";
+								document.getElementById(bot+1).style.margin="auto";
+								document.getElementById(bot+1).style.width="125px";
+								document.getElementById(bot+1).style.height="125px";
+								document.getElementById(bot+1).style.borderRadius="70px 20px";
+								document.getElementById(bot+1).style.margin="62.5px";
+								window[`times${bot+1}`]=2;
+							} else {
+								checkbox();
+							}
+						}else if(allboxes[bot]=="X"){
+							if(window[`times${bot+1}`]==1){
+								document.getElementById(bot+1).innerHTML="O";
+								allboxes[bot]="O";
+								window[`times${bot+1}`]=1;
+							} else {
+								checkbox();
+							}
+						}else  if(allboxes[bot]==bot+1){
+							checker = 12;
+							document.getElementById(bot+1).innerHTML="O";
+							allboxes[bot]="O";
+							window[`times${bot+1}`]=1
+						}
+						if(times1==2&&times2==2&&times3==2&&times4==2&&times5==2&&times6==2&&times7==2&&times8==2&&times9==2){
+								winscreen("draw");
+						}
+					
+						checker = bot + 1;
+						allowPlayer = true;
+						checkwin("O");
+					}
+				}
+			}
+			function cheat(){
+			
+				if(allboxes[0]=="X" && allboxes[1]=="X"&& allboxes[2]!="X"){
+					if(times3==2){
+						return;
+					}else if(times3==1){
+						allboxes[2]="O";
+						document.getElementById("3").style.backgroundColor="#ef7ac0";
+						document.getElementById("3").style.margin="auto";
+						document.getElementById("3").style.width="125px";
+						document.getElementById("3").style.height="125px";
+						document.getElementById("3").style.borderRadius="70px 20px";
+						document.getElementById("3").style.margin="62.5px";
+						times3=2;
+						rand=0;
+						checker =3;
+						allowPlayer = true;
+						checkwin("O");
+					}else if(times3==0){
+						allboxes[2]="O";
+						document.getElementById("3").innerHTML="O";
+						times3=1;
+						rand=0;
+						checker = 3;
+						allowPlayer = true;
+						checkwin("O");
+						}
+				}else if(allboxes[0]!="X" && allboxes[1]=="X" && allboxes[2]=="X" ){
+		
+					if(times1==2){
+						return;
+					}else if(times1==1){
+						allboxes[0]="O";
+						document.getElementById("1").style.backgroundColor="#ef7ac0";
+						document.getElementById("1").style.margin="auto";
+						document.getElementById("1").style.width="125px";
+						document.getElementById("1").style.height="125px";
+						document.getElementById("1").style.borderRadius="70px 20px";
+						document.getElementById("1").style.margin="62.5px";
+						times1=2;
+						rand=0;
+						checker =1;
+						allowPlayer = true;
+						checkwin("O");
+					}else if(times1==0){
+						allboxes[0]="O";
+						document.getElementById("1").innerHTML="O";
+						times1=1;
+						rand=0;
+						checker = 1;
+						allowPlayer = true;
+						checkwin("O");
+						}
+				}else if(allboxes[1]!="X" && allboxes[2]=="X" && allboxes[0]=="X" ){
+		
+					if(times2==2){
+						return;
+					}else if(times2==1){
+						allboxes[1]="O";
+						document.getElementById("2").style.backgroundColor="#ef7ac0";
+						document.getElementById("2").style.margin="auto";
+						document.getElementById("2").style.width="125px";
+						document.getElementById("2").style.height="125px";
+						document.getElementById("2").style.borderRadius="70px 20px";
+						document.getElementById("2").style.margin="62.5px";
+						times2=2;
+						rand=0;
+						checker =2;
+						allowPlayer = true;
+						checkwin("O");
+					}else if(times2==0){
+						allboxes[1]="O";
+						document.getElementById("2").innerHTML="O";
+						times2=1;
+						rand=0;
+						checker = 2;
+						allowPlayer = true;
+						checkwin("O");
+						}
+				}else if(allboxes[0]!="X" && allboxes[3]=="X" && allboxes[6]=="X" ){
+		
+					if(times1==2){
+						return;
+					}else if(times1==1){
+						allboxes[0]="O";
+						document.getElementById("1").style.backgroundColor="#ef7ac0";
+						document.getElementById("1").style.margin="auto";
+						document.getElementById("1").style.width="125px";
+						document.getElementById("1").style.height="125px";
+						document.getElementById("1").style.borderRadius="70px 20px";
+						document.getElementById("1").style.margin="62.5px";
+						times1=2;
+						rand=0;
+						checker=1;
+						allowPlayer = true;
+						checkwin("O");
+					}else if(times1==0){
+						allboxes[0]="O";
+						document.getElementById("1").innerHTML="O";
+						times1=1;
+						rand=0;
+						checker = 1;
+						allowPlayer = true;
+						checkwin("O");
+						}
+				}else if(allboxes[3]!="X" && allboxes[0]=="X" && allboxes[6]=="X" ){
+		
+					if(times4==2){
+						return;
+					}else if(times4==1){
+						allboxes[3]="O";
+						document.getElementById("4").style.backgroundColor="#ef7ac0";
+						document.getElementById("4").style.margin="auto";
+						document.getElementById("4").style.width="125px";
+						document.getElementById("4").style.height="125px";
+						document.getElementById("4").style.borderRadius="70px 20px";
+						document.getElementById("4").style.margin="62.5px";
+						times4=2;
+						rand=0;
+						checker =4;
+						allowPlayer = true;
+						checkwin("O");
+					}else if(times4==0){
+						allboxes[3]="O";
+						document.getElementById("4").innerHTML="O";
+						times4=1;
+						rand=0;
+						checker = 4;
+						allowPlayer = true;
+						checkwin("O");
+						}
+				}else if(allboxes[6]!="X" && allboxes[0]=="X" && allboxes[3]=="X" ){
+		
+					if(times7==2){
+						return;
+					}else if(times7==1){
+						allboxes[6]="O";
+						document.getElementById("7").style.backgroundColor="#ef7ac0";
+						document.getElementById("7").style.margin="auto";
+						document.getElementById("7").style.width="125px";
+						document.getElementById("7").style.height="125px";
+						document.getElementById("7").style.borderRadius="70px 20px";
+						document.getElementById("7").style.margin="62.5px";
+						times7=2;
+						rand=0;
+						checker =7;
+						allowPlayer = true;
+						checkwin("O");
+					}else if(times7==0){
+						allboxes[6]="O";
+						document.getElementById("7").innerHTML="O";
+						times7=1;
+						rand=0;
+						checker = 7;
+						allowPlayer = true;
+						checkwin("O");
+						}
+				}
+				
+			}
+			
+			function checkwin(VAR){
+
+				if(allboxes[0]==VAR && allboxes[1]==VAR && allboxes[2]==VAR){
+					continue1=0;
+					winscreen(VAR);
+				}else if(allboxes[3]==VAR && allboxes[4]==VAR && allboxes[5]==VAR){
+					winscreen(VAR);
+					continue1=0;
+				}else if(allboxes[6]==VAR && allboxes[7]==VAR && allboxes[8]==VAR){
+					winscreen(VAR);
+					continue1=0;
+				}else if(allboxes[0]==VAR && allboxes[3]==VAR && allboxes[6]==VAR){
+				   winscreen(VAR);
+				   continue1=0;
+				}else if(allboxes[1]==VAR && allboxes[4]==VAR && allboxes[7]==VAR){
+					winscreen(VAR);
+					continue1=0;
+				}else if(allboxes[2]==VAR && allboxes[5]==VAR && allboxes[8]==VAR){
+					winscreen(VAR);
+					continue1=0;
+				}else if(allboxes[0]==VAR && allboxes[4]==VAR && allboxes[8]==VAR){
+					winscreen(VAR);
+					continue1=0;
+				}else if(allboxes[2]==VAR && allboxes[4]==VAR && allboxes[6]==VAR){
+					winscreen(VAR);
+					continue1=0;
+				}
+
+				
+			}
+			function winscreen(winvar){
+				table.style.display="none";
+				document.getElementById("title").style.display="none";
+				document.getElementById("subtitle").style.display="none";
+				if(winvar =="X")
+				{
+					win.innerHTML="YOU WIN";
+					win.style.display="block";
+					
+				}else if(winvar =="O")
+				{
+					win.innerHTML="YOU LOSE";
+					win.style.display="block";
+				}else if(winvar== "draw"){
+					win.innerHTML="IT'S A DRAW";
+					win.style.display="block";
+				}
+				document.getElementById("reset").style.display="flex";
+			}
+			
+			
+		</script>
+	</head>
+	<body onload="initialize();">
+	<h1 id="gameWin" style="display:none;"></h1>
+		<h1 id="title" style="text-align:center; font-size:45px; letter-spacing:20px;">TWO LAYER TIC TAC TOE</h1>
+		<h2 id="subtitle" style="text-align:center;">Can you win it?</h2>
+		<button onclick="reset();"id="reset">RESET</button>
+		<table id="table1" align=center>
+			<tr>
+				<td class="dot bottomborder rightborder"> <div class="square" onclick="letterplace(1);" id="1"></div> </td> 
+				<td class="dot bottomborder rightborder leftborder"> <div class="square" onclick="letterplace(2);" id="2"></div> </td>
+				<td class="dot bottomborder leftborder"> <div class="square" onclick="letterplace(3);" id="3" ></div> </td>
+			</tr>
+			<tr>
+				<td class="dot topborder bottomborder rightborder"> <div class="square" onclick="letterplace(4);" id="4"></div> </td>
+				<td class="dot topborder bottomborder leftborder rightborder"> <div class="square" onclick="letterplace(5);" id="5"></div> </td>
+				<td class="dot topborder bottomborder leftborder"> <div class="square" onclick="letterplace(6);" id="6"></div> </td>
+			</tr>
+			<tr>
+				<td class="dot topborder rightborder"> <div class="square" onclick="letterplace(7);" id="7"></div> </td>
+				<td class="dot topborder rightborder leftborder"> <div class="square" onclick="letterplace(8);" id="8"></div> </td>
+				<td class="dot `topborder leftborder"> <div class="square bottom right" onclick="letterplace(9);" id="9"></div> </td>
+			</tr>
+		</table>
+		
+		
+	</body>
+</html> 
